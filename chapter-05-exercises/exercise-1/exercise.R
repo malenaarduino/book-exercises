@@ -4,7 +4,7 @@
 
 
 # Assign your name to the variable `my_name`
-
+my_name <- "Malena"
 
 # Assign your height (in inches) to a variable `my_height`
 
@@ -20,7 +20,7 @@
 
 # Create a boolean variable `too_expensive`, set to TRUE if the cost is greater 
 # than $1,000
-
+too_expensive <- total_cost > 1000
 
 # Create a variable `max_puppies`, which is the number of puppies you can 
 # afford for $1,000
