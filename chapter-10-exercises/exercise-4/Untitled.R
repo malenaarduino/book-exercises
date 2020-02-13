@@ -42,6 +42,44 @@ PRESIDENTIALELECTIONS %>%
   fi;ter(demVote == max(demVote)) %>% 
   pull(state)
 
+DATA WRANGLING II: Groups, Joins, Tidyr 
+
+students %>% group_by(section) %>% filter(exam2_grade == max(exam2_grade))
+
+left_join() combines two tables into a data frame with the columns of both. left_join() takes the rows of the left able and adds columns from the right table
+
+
+student_contact <- data.frame(  student_id = c(1, 2, 3, 4), # id numbers  
+                                email = c("mason@uw.edu", "tabi@uw.edu", "bryce@uw.edu", "ada@uw.edu"))
+
+# Table of information about majors
+student_majors <- data.frame(  
+  student_id = c(1, 5, 4, 2),  # id numbers  
+  major = c('sociology', 'biology', 'math', 'informatics'))
+left_join(student_contact, student_majors, by = "student_id")
+
+Data Shape: we can covert between wide and long data (and vice versa) using the tidyr package
+
+# Alternatively, install "tidyverse"
+install.packages("tidyr")  # once per machine
+
+library("tidyr")# An example wide data frame for demoing
+
+students <- data.frame(  
+  name = c('Mason', 'Tabi', 'Bryce', 'Ada', 'Bob', 'Filipe'),  
+  section = c('a','a','a','b','b','b'),  
+  math_exam1 = c(91, 82, 93, 100, 78, 91),   
+  math_exam2 = c(88, 79, 77, 99, 88, 93),  
+  spanish_exam1 = c(79, 88, 92, 83, 87, 77),   
+  spanish_exam2 = c(99, 92, 92, 82, 85, 95))
+
+students
+long_students <- gather(students, key = assignment, value = grade, math_exam1:math_exam2)
+spread(long_students, key = section, value = grade)
+
+
+
+
 
 
 

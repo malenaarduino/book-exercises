@@ -30,10 +30,10 @@ View(flights)
 
 # For practice, repeat the last 2 steps in a single statement using the pipe
 # operator. You can clear your environmental variables to "reset" the data frame
-
+flights <- flights %>% mutate(gain_in_air = arr_delay - dep_delay) %>% arrange(desc(gain_in_air))
 
 # Make a histogram of the amount of time gained using the `hist()` function
-
+hist(glights$gain_in_air)
 
 # On average, did flights gain or lose time?
 # Note: use the `na.rm = TRUE` argument to remove NA values from your aggregation
